@@ -3,7 +3,7 @@ pipeline {
 
   stages {
     stage('checkout'){
-        step{
+        steps {
             git branch: 'master', credentialsId: 'Jenkins-Credential-ssh', url: 'git@github.com:jdiego16/Game-example-test.git'
 
         }
