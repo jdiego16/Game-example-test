@@ -30,11 +30,11 @@ pipeline {
     }
     stage("Publish") {
             steps {
-                script {
-                    if (params.RELEASE) {
-                        sh "echo conditional true"
-                    }
+            
+                if (params.RELEASE) {
+                    sh "echo conditional true"
                 }
+                
             }
 
 
