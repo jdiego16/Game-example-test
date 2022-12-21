@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     if (params.RELEASE) {
-                        sh "echo conditional true"
+                        sh "echo conditional true."
                     }
                 }
             }
