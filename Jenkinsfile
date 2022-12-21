@@ -1,11 +1,12 @@
 pipeline {
   agent any
-
+    parameters {
+        booleanParam(name: "RELEASE", defaultValue: false)
+    }
   stages {
     stage('checkout'){
         steps {
             git branch: 'master', credentialsId: 'Jenkins-Credential-ssh', url: 'git@github.com:jdiego16/Game-example-test.git'
-
         }
     }
     stage('Quality Analysis') {
@@ -27,6 +28,14 @@ pipeline {
                 }
             }
     }
+    stage("Publish") {
+            steps {
+                script {
+                    if (params.RELEASE) {
+                        sh "echo conditional true"
+                    }
+                }
+            }
 
 
     }
